@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-consumer" />
+        <module name="springcloud-eureka" />
+        <module name="springcloud-eureka1" />
+        <module name="springcloud-provider" />
+        <module name="springcloud-provider2" />
+        <module name="springcloud-redis" />
+        <module name="springcloud-solrcloud" />
+        <module name="springcloudmybatisgenerator" />
+        <module name="springcloudpojo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="springcloud-dao" target="1.8" />
+      <module name="springcloud-provider (1)" target="1.8" />
+      <module name="springclouddao" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,35 @@
+#eureka相关配置
+server:
+  port: 8081
+spring:
+  application:
+    name: springcloud-provider
+  #连接池指定
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/tqy
+      username: root
+      password: root
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@127.0.0.1:6001/eureka,http://user:123456@127.0.0.1:6002/eureka  #注册中心已经开启认证
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.cloud.client.ipAddress}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+
+#mybatis整合相关配置
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:com/zjw/springcloud/springcloudprovider/mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.zjw.springcloud.springcloudpojo.pojo  # 注意：对应实体类的路径
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

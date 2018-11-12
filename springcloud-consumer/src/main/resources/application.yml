@@ -1,0 +1,19 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: springcloud-consumer
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@127.0.0.1:6001/eureka,http://user:123456@127.0.0.1:6002/eureka  #注册中心已经开启认证
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+feign:
+  　　httpclient:
+    　　enabled: true
